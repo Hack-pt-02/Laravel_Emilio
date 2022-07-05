@@ -77,7 +77,7 @@ route::get("/about", function() {
     return view("about");
 })->name("about");
 
-// CONTACT
+// CONTACTO
 
 Route::get("/contact", function() {
     return view("contact");
