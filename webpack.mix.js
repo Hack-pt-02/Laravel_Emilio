@@ -16,3 +16,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sourceMaps();
 
 mix.js("resources/js/myjs.js", "public/js");
+mix.styles(["resources/css/mycss.css"], "public/css/all.css");
