@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocalController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// ESTA ES LA RAIZ
-Route::get('/', function() {
-
-    $locals = [
-        [1, "CerveBar", "La cervecería del barrio"],
-        [2, "Bar Vera", "El mejor bar para beber"],
-        [3, "Birra y Tapa", "Por cada bebida una tapa"],
-        [4, "El bar ideal", "Para pasar tiempo con tus amigos"],
-        [5, "Cervecería para llorar", "Desahogate y llora"]
-    ];
-    return view('locals.index', ['locals' => $locals]);
-})-> name("locals.index");
+// RAIZ
+Route::get('/', [LocalController::class, "index"])-> name("index");
 
 // LOGIN
 
@@ -34,51 +27,12 @@ Route::get("/login", function() {
 
 // DETALLE DE LA CARD
 
-Route::get("/local/{id}", function($id) {
-
-    $localsAux;
-
-    $locals = [
-        [1, "CerveBar", "La cervecería del barrio"],
-        [2, "Bar Vera", "El mejor bar para beber"],
-        [3, "Birra y Tapa", "Por cada bebida una tapa"],
-        [4, "El bar ideal", "Para pasar tiempo con tus amigos"],
-        [5, "Cervecería para llorar", "Desahogate y llora"]
-    ];
-
-    foreach($locals as $local) {
-        if ($local[0] == $id) {
-            $localsAux = $local;
-        }
-    }
-
-    return view("locals.product", ["local" => $localsAux, "locals" => $locals]);
-
-});
-
-// PRODUCT
-
-Route::get("/product", function() {
-
-    $locals = [
-        [1, "CerveBar", "La cervecería del barrio"],
-        [2, "Bar Vera", "El mejor bar para beber"],
-        [3, "Birra y Tapa", "Por cada bebida una tapa"],
-        [4, "El bar ideal", "Para pasar tiempo con tus amigos"],
-        [5, "Cervecería para llorar", "Desahogate y llora"]
-    ];
-
-    return view("locals.product", ["locals" => $locals]);
-})->name("product");
+Route::get("/local/{id}", [LocalController::class, "card"]);
 
 // ABOUT
 
-route::get("/about", function() {
-    return view("about");
-})->name("about");
+route::get("/about",[AboutController::class, "show"])->name("about");
 
 // CONTACTO
 
-Route::get("/contact", function() {
-    return view("contact");
-})->name("contact");
+Route::get("/contact", [ContactController::class, "show"])->name("contact");

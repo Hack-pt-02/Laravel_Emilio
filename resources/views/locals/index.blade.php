@@ -1,5 +1,7 @@
 @extends("layouts.layout")
 
+@section("titleHead", "inicio")
+
 @section("title", "Todos nuestros locales")
 
 @section("content")

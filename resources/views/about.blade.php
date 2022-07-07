@@ -1,3 +1,12 @@
 @extends("layouts.layout")
 
-@section("title", "Todos nuestros productos")
+@section("titleHead", "aboutUs")
+
+@section("title", "Sobre Nosotros")
+
+@section("content",)
+<div class="container mt-3 text-center">
+    <p>Aquí iría el contenido</p>
+</div>
+
+@endsection

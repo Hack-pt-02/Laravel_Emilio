@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 
+@section("titleHead", "Contact")
+
 @section('title', "contacto")
 
 @section("content")
