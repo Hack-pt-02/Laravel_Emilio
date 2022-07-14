@@ -36,3 +36,4 @@ route::get("/about",[AboutController::class, "show"])->name("about");
 // CONTACTO
 
 Route::get("/contact", [ContactController::class, "show"])->name("contact");
+Route::post("/contact", [ContactController::class, "store"]);
