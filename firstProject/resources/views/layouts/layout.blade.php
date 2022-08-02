@@ -9,7 +9,6 @@
     <x-nav-bar />
     @yield("titlePage")
     @yield('content')
-    <x-footer />
 </body>
 
 </html>
